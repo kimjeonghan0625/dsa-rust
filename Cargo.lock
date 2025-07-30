@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "dsa"
+name = "recursive"
 version = "0.1.0"

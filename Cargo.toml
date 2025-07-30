@@ -1,6 +1,5 @@
-[package]
-name = "dsa"
-version = "0.1.0"
-edition = "2024"
+[workspace]
+members = ["crates/recursive"]
+resolver = "3"
 
-[dependencies]
+[workspace.dependencies]
