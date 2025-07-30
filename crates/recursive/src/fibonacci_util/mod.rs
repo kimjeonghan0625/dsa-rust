@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 // iterative way
-pub fn fib1(num: i32) -> i32 {
+pub fn fib_iter(num: i32) -> i32 {
     let (mut first, mut second, mut sum) = (1, 1, 0);
     (0..num - 2).for_each(|_| {
         sum = first + second;
@@ -12,7 +12,7 @@ pub fn fib1(num: i32) -> i32 {
 }
 
 // recursive way
-pub fn fib2(num: i32) -> i32 {
+pub fn fib_recur(num: i32) -> i32 {
     fn inner_fib(n: i32) -> i32 {
         if n <= 1 {
             return n;
@@ -23,7 +23,7 @@ pub fn fib2(num: i32) -> i32 {
 }
 
 // recursive way with memoization
-pub fn fib3(num: i32) -> i32 {
+pub fn fib_recur_with_memoization(num: i32) -> i32 {
     let mut cache_vec = HashMap::<i32, i32>::new();
 
     fn inner_fib(n: i32, cache: &mut HashMap<i32, i32>) -> i32 {
