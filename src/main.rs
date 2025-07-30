@@ -3,7 +3,7 @@ use std::{collections::HashMap, time::Instant};
 // iterative way
 fn fib1(num: i32) -> i32 {
     let (mut first, mut second, mut sum) = (1, 1, 0);
-    (0..num - 2).into_iter().for_each(|_| {
+    (0..num - 2).for_each(|_| {
         sum = first + second;
         first = second;
         second = sum;
@@ -28,7 +28,7 @@ fn fib3(num: i32) -> i32 {
 
     fn inner_fib(n: i32, cache: &mut HashMap<i32, i32>) -> i32 {
         if n <= 1 {
-            if let None = cache.get(&n) {
+            if cache.get(&n).is_none() {
                 cache.insert(n, n);
             }
             return n;
@@ -60,17 +60,17 @@ fn main() {
     let start = Instant::now();
     println!("fib1: {}", fib1(46));
     let duration = start.elapsed();
-    println!("fib1 duration is {:?}", duration);
+    println!("fib1 duration is {duration:?}");
 
     // recursive way
     let start = Instant::now();
     println!("fib2: {}", fib2(46));
     let duration = start.elapsed();
-    println!("fib2 duration is {:?}", duration);
+    println!("fib2 duration is {duration:?}");
 
     // recursive way with memoization
     let start = Instant::now();
     println!("fib3: {}", fib3(46));
     let duration = start.elapsed();
-    println!("fib3 duration is {:?}", duration);
+    println!("fib3 duration is {duration:?}");
 }
